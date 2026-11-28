@@ -2,7 +2,7 @@
   "layout": "unclenaffy",
   "sections": {
     "main": {
-      "type": "un-page",
+      "type": "main-page",
       "settings": {}
     }
   },

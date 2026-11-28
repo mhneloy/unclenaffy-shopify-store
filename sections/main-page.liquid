@@ -1,10 +1,20 @@
-<style>.page-title{margin-bottom:40px;}.main-content{padding:0;}.content-block--page ul,.content-block--page ol{padding-left:1rem;}</style>
-<div class="container">
-  <!-- <h1 class="text-center page-title">{{ page.title }}</h1> -->
-  <div class="content-block--page {% if page.content != blank %} py-5 {% endif %}">
-    {{ page.content }}
+{% if template.name == 'page' and template.suffix == blank %}
+  <section class="un-section un-page" data-un-style style="{% render 'un-section-style', section: section %}">
+    <div class="un-wrap">
+      <h1>{{ page.title | escape }}</h1>
+      {% if page.content != blank %}
+        <div class="un-prose">{{ page.content }}</div>
+      {% endif %}
+    </div>
+  </section>
+{% else %}
+  <style>.page-title{margin-bottom:40px;}.main-content{padding:0;}.content-block--page ul,.content-block--page ol{padding-left:1rem;}</style>
+  <div class="container">
+    <div class="content-block--page {% if page.content != blank %} py-5 {% endif %}">
+      {{ page.content }}
+    </div>
   </div>
-</div>
+{% endif %}
 {% schema %}
 {
   "name": " Page content Section",

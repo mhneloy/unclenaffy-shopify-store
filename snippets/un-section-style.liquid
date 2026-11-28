@@ -1,0 +1,67 @@
+{%- liquid
+  assign s = section.settings
+  assign colors = 'background:section-bg,heading_color:title-ink,body_color:body-ink,eyebrow_color:kicker-ink,detail_color:detail-ink,button_background:cta-bg,button_text:cta-ink,surface_color:section-surface,price_color:price-ink,highlight_color:highlight-ink' | split: ','
+  for color in colors
+    assign pair = color | split: ':'
+    assign value = s[pair.first]
+    if value != blank
+      echo '--un-' | append: pair.last | append: ':' | append: value | append: ';'
+    endif
+  endfor
+
+  assign dimensions = 'space:space,mobile_space:mobile-space,padding_top:padding-top,padding_bottom:padding-bottom,mobile_padding_top:mobile-padding-top,mobile_padding_bottom:mobile-padding-bottom,margin_top:margin-top,margin_bottom:margin-bottom,logo_width:logo-width,mobile_logo_width:mobile-logo-width' | split: ','
+  for dimension in dimensions
+    assign pair = dimension | split: ':'
+    assign value = s[pair.first] | default: -1
+    if value >= 0
+      echo '--un-' | append: pair.last | append: ':' | append: value | append: 'px;'
+    endif
+  endfor
+
+  assign sizes = 'heading_size:title-size,body_size:body-size' | split: ','
+  for size in sizes
+    assign pair = size | split: ':'
+    assign value = s[pair.first] | default: 0
+    if value > 0
+      assign relative_size = value | divided_by: 16.0
+      echo '--un-' | append: pair.last | append: ':' | append: relative_size | append: 'rem;'
+      if pair.first == 'heading_size'
+        echo '--un-title-mobile:min(' | append: relative_size | append: 'rem,14vw);'
+      endif
+    endif
+  endfor
+
+  assign roles = 'heading:title,body:copy,eyebrow:kicker,detail:detail,button:action,highlight:highlight' | split: ','
+  for role in roles
+    assign pair = role | split: ':'
+    assign setting_key = pair.first | append: '_type'
+    assign typography = s[setting_key] | default: 'default:default' | split: ':'
+    assign property = '--un-' | append: pair.last
+    assign family = ''
+    case typography.first
+      when 'display'
+        assign family = 'var(--un-heading)'
+      when 'body'
+        assign family = 'var(--un-body)'
+      when 'serif'
+        assign family = 'Georgia, serif'
+      when 'sans'
+        assign family = 'Arial, sans-serif'
+      when 'mono'
+        assign family = 'ui-monospace, monospace'
+    endcase
+    if family != blank
+      echo property | append: '-font:' | append: family | append: ';'
+    endif
+    case typography.last
+      when 'regular'
+        echo property | append: '-weight:400;' | append: property | append: '-style:normal;'
+      when 'bold'
+        echo property | append: '-weight:700;' | append: property | append: '-style:normal;'
+      when 'italic'
+        echo property | append: '-weight:400;' | append: property | append: '-style:italic;'
+      when 'bold_italic'
+        echo property | append: '-weight:700;' | append: property | append: '-style:italic;'
+    endcase
+  endfor
+-%}
