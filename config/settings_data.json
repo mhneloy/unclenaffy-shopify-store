@@ -609,6 +609,7 @@
           "1561259906467": {
             "type": "image",
             "settings": {
+              "image": "shopify://shop_images/s1.webp",
               "center_text": true,
               "alignment": "right center",
               "text_alignment": "left center",
@@ -642,6 +643,7 @@
           "1561259904381": {
             "type": "image",
             "settings": {
+              "image": "shopify://shop_images/s2.webp",
               "center_text": true,
               "alignment": "center center",
               "text_alignment": "center center",
@@ -676,6 +678,7 @@
             "type": "image",
             "disabled": true,
             "settings": {
+              "image": "shopify://shop_images/s3.webp",
               "center_text": true,
               "alignment": "center center",
               "text_alignment": "right center",
@@ -1769,7 +1772,7 @@
             "type": "item_default",
             "settings": {
               "code": "Free express international delivery + easy returns",
-              "link_list": ""
+              "link_list": "announcement-menu"
             }
           }
         },
@@ -2246,12 +2249,14 @@
               "menu_banner_width": 60,
               "menu_banner_height": 300,
               "menu_banner_size_title": "h4",
+              "menu_banner_image_1": "shopify://shop_images/h1-b5.jpg",
               "menu_banner_position_text_1": "bot-left",
               "menu_banner_subheading_1": "All Styles",
               "menu_banner_heading_1": "Min. 65% Off",
               "menu_banner_paragraph_1": "",
               "menu_banner_btn_1": "Discover now",
               "menu_banner_link_1": "shopify://collections",
+              "menu_banner_image_2": "shopify://shop_images/h1-b4.jpg",
               "menu_banner_position_text_2": "bot-left",
               "menu_banner_subheading_2": "Lingerie",
               "menu_banner_heading_2": "Flat 50% Off",
@@ -2275,6 +2280,7 @@
               "enable_menu_banner": true,
               "image_size": "wide",
               "menu_banner_width": 30,
+              "menu_banner_image_1": "shopify://shop_images/blog-2.webp",
               "menu_banner_html_1": "<h4 class=\"mb-0\">Flat 50% Off</h4>\n<p>Our products are designed for everyone.</p>",
               "menu_banner_btn_1": "Shop now",
               "menu_banner_link_1": "shopify://collections",
@@ -2315,6 +2321,7 @@
           "bd742a30-30ad-494f-bb7a-d35c5cd1f2ae"
         ],
         "settings": {
+          "logo": "shopify://shop_images/logopng2.png",
           "logo_max_width": 165,
           "enable_transparent": false,
           "hover_transparent": false,
@@ -2361,7 +2368,8 @@
           "icon_search": "icon",
           "enable_contact_header": true,
           "text_contact_header": "Call us",
-          "text_phone_header": "+84 1800 33355"
+          "text_phone_header": "+84 1800 33355",
+          "logo_left_navigation": "shopify://shop_images/phone.svg"
         }
       },
       "cookie-policy": {
@@ -2381,13 +2389,14 @@
       "pnewsletter": {
         "type": "pnewsletter",
         "settings": {
-          "pnewletter_enable": false,
+          "pnewletter_enable": true,
           "pnew_style": "pnew_style-1",
           "pnew-width": 810,
           "pnew-height": 480,
           "pnewletter_time_delay": 3,
           "pnewletter_time": 20,
           "pnewletter_background": "#ffffff",
+          "pnewletter_bgimage": "shopify://shop_images/gallery-7.jpg",
           "pnewletter_title": "Save 10% on your first order",
           "pnewletter_title_cl": "",
           "pnew_size_heading": "h3",
@@ -2402,7 +2411,7 @@
             "type": "menu",
             "settings": {
               "enable_title": false,
-              "link_list": "",
+              "link_list": "footer-extras",
               "width": "16%"
             }
           },
@@ -2410,13 +2419,14 @@
             "type": "menu",
             "settings": {
               "enable_title": false,
-              "link_list": "",
+              "link_list": "account",
               "width": "16%"
             }
           },
           "204f59c9-fc0f-4ca7-a634-6343ed401981": {
             "type": "text",
             "settings": {
+              "logofooter": "shopify://shop_images/logopng2.png",
               "widthlogofooter": 180,
               "e_center_v": true,
               "enable_border": true,
@@ -2605,16 +2615,52 @@
         "settings": {
           "menu": "main-menu",
           "cta": "Book now",
-          "sticky": true
+          "sticky": true,
+          "booking_page": "book-appointment",
+          "logo": "shopify://shop_images/Uncle_Naffy_Premium_Haircare_Logo.webp",
+          "logo_width": 150,
+          "mobile_logo_width": 110,
+          "padding_top": -4,
+          "padding_bottom": -4,
+          "mobile_padding_top": -4,
+          "mobile_padding_bottom": -4,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "background": "",
+          "body_color": "",
+          "detail_color": "",
+          "button_background": "",
+          "button_text": "",
+          "body_type": "default:default",
+          "body_size": 0,
+          "detail_type": "default:default",
+          "button_type": "default:default"
         }
       },
       "un-footer": {
         "type": "un-footer",
         "settings": {
-          "menu": "",
-          "policy_menu": "",
+          "menu": "main-menu",
+          "policy_menu": "footer",
           "tagline": "Precision in every detail.",
-          "hours": ""
+          "hours": "",
+          "logo": "shopify://shop_images/Uncle_Naffy_Premium_Haircare_Logo.webp",
+          "logo_width": 150,
+          "padding_top": -4,
+          "padding_bottom": -4,
+          "mobile_padding_top": -4,
+          "mobile_padding_bottom": -4,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "background": "",
+          "heading_color": "",
+          "body_color": "",
+          "detail_color": "",
+          "heading_type": "default:default",
+          "heading_size": 0,
+          "body_type": "default:default",
+          "body_size": 0,
+          "detail_type": "default:default"
         }
       }
     },

@@ -1,7 +1,0 @@
-{%- assign loading = loading | default: 'lazy' -%}
-{%- if image != blank -%}
-  {%- assign accessible_alt = alt | default: image.alt -%}
-  {{ image | image_url: width: 1800 | image_tag: widths: '320, 480, 640, 900, 1200, 1500, 1800', sizes: sizes, class: class, loading: loading, alt: accessible_alt }}
-{%- elsif fallback != blank -%}
-  <img class="{{ class }}" src="{{ fallback | asset_url }}" alt="{{ fallback_alt | escape }}" width="{{ width | default: 1200 }}" height="{{ height | default: 800 }}" loading="{{ loading }}" decoding="async"{% if loading == 'eager' %} fetchpriority="high"{% endif %}>
-{%- endif -%}

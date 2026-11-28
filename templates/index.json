@@ -12,7 +12,47 @@
   "sections": {
     "hero": {
       "type": "un-hero",
-      "settings": {}
+      "custom_css": [
+        "img{mix-blend-mode: screen;}"
+      ],
+      "settings": {
+        "eyebrow": "Uncle Naffy Barbering",
+        "heading": "Precision in",
+        "highlight": "every detail.",
+        "subtitle": "Considered cuts, clean fades and beard work, finished with care.",
+        "cta": "Book appointment",
+        "link": "",
+        "animate_still": true,
+        "overlay": "#111110",
+        "opacity": 25,
+        "height": 88,
+        "show_logo": true,
+        "logo_size": 60,
+        "logo_position": "inline",
+        "alignment": "center",
+        "logo": "shopify://shop_images/un-naffy-logo.webp",
+        "padding_top": -4,
+        "padding_bottom": -4,
+        "mobile_padding_top": -4,
+        "mobile_padding_bottom": -4,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "heading_color": "",
+        "body_color": "",
+        "eyebrow_color": "",
+        "detail_color": "",
+        "button_background": "",
+        "button_text": "",
+        "heading_type": "default:default",
+        "heading_size": 0,
+        "body_type": "default:default",
+        "body_size": 0,
+        "eyebrow_type": "default:default",
+        "button_type": "default:default",
+        "background": "",
+        "highlight_color": "",
+        "highlight_type": "default:default"
+      }
     },
     "intro": {
       "type": "un-editorial",
@@ -20,59 +60,96 @@
         "anchor": "intro",
         "eyebrow": "A considered approach",
         "heading": "The craft comes first.",
+        "founder_name": "",
+        "main_heading": false,
         "copy": "<p>Barbering is in the details. A clean transition, a balanced shape and a finish that works with the way you wear your hair.</p>",
+        "note": "",
+        "alt": "",
+        "demo_image": "chair",
+        "demo_alt": "",
+        "demo_caption": "Illustrative photography",
+        "ratio": "landscape",
         "alignment": "left",
+        "banner": false,
         "cta": "About Uncle Naffy",
-        "destination": "about"
+        "destination": "about",
+        "link": "",
+        "background": "",
+        "space": 88,
+        "mobile_space": 52,
+        "padding_top": -4,
+        "padding_bottom": -4,
+        "mobile_padding_top": -4,
+        "mobile_padding_bottom": -4,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "heading_color": "",
+        "body_color": "",
+        "eyebrow_color": "",
+        "detail_color": "",
+        "button_background": "",
+        "button_text": "",
+        "heading_type": "default:default",
+        "heading_size": 0,
+        "body_type": "default:default",
+        "body_size": 0,
+        "eyebrow_type": "default:default",
+        "detail_type": "default:default",
+        "button_type": "default:default"
       }
     },
     "services": {
       "type": "un-services",
-      "settings": {
-        "heading": "In the chair",
-        "copy": "Explore the service menu to find the right appointment."
-      },
       "blocks": {
         "haircut": {
           "type": "service",
           "settings": {
             "title": "Haircut",
+            "category": "Haircuts & grooming",
             "description": "A tailored cut with a clean finish.",
             "duration": "30 min",
             "price": "",
-            "icon": "cut",
-            "category": "Haircuts & grooming",
+            "from": false,
             "demo": true,
             "visible": true,
-            "demo_image": "fade"
+            "alt": "",
+            "demo_image": "fade",
+            "icon": "cut",
+            "link": ""
           }
         },
         "beard": {
           "type": "service",
           "settings": {
             "title": "Beard Trim",
+            "category": "Haircuts & grooming",
             "description": "Shape and definition for your beard.",
             "duration": "20 min",
             "price": "",
-            "icon": "beard",
-            "category": "Haircuts & grooming",
+            "from": false,
             "demo": true,
             "visible": true,
-            "demo_image": "beard"
+            "alt": "",
+            "demo_image": "beard",
+            "icon": "beard",
+            "link": ""
           }
         },
         "combo": {
           "type": "service",
           "settings": {
             "title": "Haircut & Beard",
+            "category": "Haircuts & grooming",
             "description": "A cut and beard trim in one appointment.",
             "duration": "45 min",
             "price": "",
-            "icon": "combo",
-            "category": "Haircuts & grooming",
+            "from": false,
             "demo": true,
             "visible": true,
-            "demo_image": "classic"
+            "alt": "",
+            "demo_image": "classic",
+            "icon": "combo",
+            "link": ""
           }
         }
       },
@@ -80,7 +157,39 @@
         "haircut",
         "beard",
         "combo"
-      ]
+      ],
+      "settings": {
+        "layout": "cards",
+        "eyebrow": "The service menu",
+        "heading": "In the chair",
+        "copy": "Explore the service menu to find the right appointment.",
+        "show_images": true,
+        "columns": 3,
+        "background": "",
+        "space": 88,
+        "mobile_space": 52,
+        "padding_top": -4,
+        "padding_bottom": -4,
+        "mobile_padding_top": -4,
+        "mobile_padding_bottom": -4,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "heading_color": "",
+        "body_color": "",
+        "eyebrow_color": "",
+        "detail_color": "",
+        "button_background": "",
+        "button_text": "",
+        "heading_type": "default:default",
+        "heading_size": 0,
+        "body_type": "default:default",
+        "body_size": 0,
+        "eyebrow_type": "default:default",
+        "detail_type": "default:default",
+        "button_type": "default:default",
+        "surface_color": "",
+        "price_color": ""
+      }
     }
   },
   "order": [
