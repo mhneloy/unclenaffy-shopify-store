@@ -2599,6 +2599,23 @@
           "96fa1ba2-600b-4138-90c2-bf903be331e1"
         ],
         "settings": {}
+      },
+      "un-header": {
+        "type": "un-header",
+        "settings": {
+          "menu": "main-menu",
+          "cta": "Book now",
+          "sticky": true
+        }
+      },
+      "un-footer": {
+        "type": "un-footer",
+        "settings": {
+          "menu": "",
+          "policy_menu": "",
+          "tagline": "Precision in every detail.",
+          "hours": ""
+        }
       }
     },
     "content_for_index": [
