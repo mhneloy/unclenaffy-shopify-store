@@ -2605,7 +2605,26 @@
         "settings": {
           "menu": "main-menu",
           "cta": "Book now",
-          "sticky": true
+          "sticky": true,
+          "booking_page": "",
+          "logo": "shopify://shop_images/un-naffy-logo.webp",
+          "logo_width": 150,
+          "mobile_logo_width": 110,
+          "padding_top": -4,
+          "padding_bottom": -4,
+          "mobile_padding_top": -4,
+          "mobile_padding_bottom": -4,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "background": "",
+          "body_color": "",
+          "detail_color": "",
+          "button_background": "",
+          "button_text": "",
+          "body_type": "default:default",
+          "body_size": 0,
+          "detail_type": "default:default",
+          "button_type": "default:default"
         }
       },
       "un-footer": {
@@ -2614,7 +2633,23 @@
           "menu": "",
           "policy_menu": "",
           "tagline": "Precision in every detail.",
-          "hours": ""
+          "hours": "",
+          "logo_width": 150,
+          "padding_top": -4,
+          "padding_bottom": -4,
+          "mobile_padding_top": -4,
+          "mobile_padding_bottom": -4,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "background": "",
+          "heading_color": "",
+          "body_color": "",
+          "detail_color": "",
+          "heading_type": "default:default",
+          "heading_size": 0,
+          "body_type": "default:default",
+          "body_size": 0,
+          "detail_type": "default:default"
         }
       }
     },
