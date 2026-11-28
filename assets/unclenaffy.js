@@ -1,6 +1,7 @@
 (() => {
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   const motionCleanups = new WeakMap();
+  const headerObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(updateHeaderOffset) : null;
 
   function initialiseAerialPan(hero, button) {
     let paused = false;
@@ -106,6 +107,23 @@
     document.querySelector('.un-home .un-header')?.classList.toggle('is-solid', window.scrollY > 36);
   }
 
+  function updateHeaderOffset() {
+    const header = document.querySelector('.un-header');
+    if (!header) return;
+    const style = getComputedStyle(header);
+    const offset = header.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+    document.documentElement.style.setProperty('--un-header-offset', `${offset}px`);
+  }
+
+  function observeHeader() {
+    headerObserver?.disconnect();
+    const header = document.querySelector('.un-header');
+    if (header) {
+      headerObserver?.observe(header, { box: 'border-box' });
+      updateHeaderOffset();
+    }
+  }
+
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
     const menu = document.querySelector('[data-un-menu][open]');
@@ -141,6 +159,7 @@
 
   document.addEventListener('shopify:section:load', (event) => {
     initialiseSections(event.target);
+    observeHeader();
     syncHeader();
   });
   document.addEventListener('shopify:section:unload', (event) => {
@@ -148,5 +167,6 @@
   });
   window.addEventListener('scroll', syncHeader, { passive: true });
   initialiseSections(document);
+  observeHeader();
   syncHeader();
 })();

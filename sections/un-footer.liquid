@@ -1,8 +1,8 @@
-<footer class="un-footer">
+<footer class="un-footer" data-un-style style="{% render 'un-section-style', section: section %}">
   <div class="un-wrap">
     <div class="un-footer-grid">
       <div>
-        <a class="un-brand" href="{{ routes.root_url }}" aria-label="Uncle Naffy home">{% render 'un-logo' %}</a>
+        <a class="un-brand" href="{{ routes.root_url }}" aria-label="Uncle Naffy home">{% render 'un-logo', logo: section.settings.logo %}</a>
         {% if section.settings.tagline != blank %}<p>{{ section.settings.tagline | escape }}</p>{% endif %}
       </div>
       <div>
@@ -41,7 +41,28 @@
     {"type":"link_list","id":"menu","label":"Footer navigation menu"},
     {"type":"link_list","id":"policy_menu","label":"Policies menu"},
     {"type":"text","id":"tagline","label":"Tagline","default":"Precision in every detail."},
-    {"type":"textarea","id":"hours","label":"Confirmed hours summary"}
+    {"type":"textarea","id":"hours","label":"Confirmed hours summary"},
+    {"type":"header","content":"Footer logo"},
+    {"type":"image_picker","id":"logo","label":"Logo image"},
+    {"type":"range","id":"logo_width","label":"Logo width","min":60,"max":240,"step":5,"unit":"px","default":150},
+    {"type":"header","content":"Padding and margin"},
+    {"type":"range","id":"padding_top","label":"Top padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"padding_bottom","label":"Bottom padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"mobile_padding_top","label":"Mobile top padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"mobile_padding_bottom","label":"Mobile bottom padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"margin_top","label":"Top margin","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"margin_bottom","label":"Bottom margin","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"header","content":"Colours"},
+    {"type":"color","id":"background","label":"Section background"},
+    {"type":"color","id":"heading_color","label":"Heading colour"},
+    {"type":"color","id":"body_color","label":"Body text colour"},
+    {"type":"color","id":"detail_color","label":"Caption and link colour"},
+    {"type":"header","content":"Typography"},
+    {"type":"select","id":"heading_type","label":"Heading font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"range","id":"heading_size","label":"Heading size","min":0,"max":160,"step":2,"unit":"px","default":0,"info":"Set to 0 to use the theme size."},
+    {"type":"select","id":"body_type","label":"Body font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"range","id":"body_size","label":"Body size","min":0,"max":36,"step":1,"unit":"px","default":0,"info":"Set to 0 to use the theme size."},
+    {"type":"select","id":"detail_type","label":"Caption and link font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]}
   ]
 }
 {% endschema %}

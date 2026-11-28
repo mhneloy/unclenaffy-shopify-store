@@ -2,7 +2,7 @@
 {% assign poster = s.poster | default: s.image %}
 {% assign poster_url = '' %}
 {% if poster != blank %}{% assign poster_url = poster | image_url: width: 1600 %}{% endif %}
-<section class="un-hero un-hero--{{ s.alignment }} un-hero--logo-{{ s.logo_position }}" style="--un-hero-height: {{ s.height }}svh; --un-overlay: {{ s.overlay }}; --un-opacity: {{ s.opacity | divided_by: 100.0 }}; --un-hero-logo: {{ s.logo_size }}px;" data-un-hero>
+<section class="un-hero un-hero--{{ s.alignment }} un-hero--logo-{{ s.logo_position }}" style="--un-hero-height: {{ s.height | default: 88 }}svh; --un-overlay: {{ s.overlay | default: '#111110' }}; --un-opacity: {{ s.opacity | default: 25 | divided_by: 100.0 }}; --un-hero-logo: {{ s.logo_size | default: 60 }}px;{% render 'un-section-style', section: section %}" data-un-style data-un-hero>
   <div class="un-hero-media" aria-hidden="true">
     <picture>
       {% if s.mobile_image != blank %}
@@ -22,7 +22,7 @@
     {% endif %}
   </div>
   <div class="un-wrap un-hero-content">
-    {% if s.show_logo %}<div class="un-hero-logo" aria-hidden="true">{% render 'un-logo', mark_only: true %}</div>{% endif %}
+    {% if s.show_logo %}<div class="un-hero-logo" aria-hidden="true">{% render 'un-logo', logo: s.logo, mark_only: true, use_bundled_logo: true %}</div>{% endif %}
     {% if s.eyebrow != blank %}<p class="un-kicker">{{ s.eyebrow | escape }}</p>{% endif %}
     <h1>{{ s.heading | escape }}{% if s.highlight != blank %}<em>{{ s.highlight | escape }}</em>{% endif %}</h1>
     {% if s.subtitle != blank %}<p class="un-hero-description">{{ s.subtitle | escape }}</p>{% endif %}
@@ -55,7 +55,33 @@
     {"type":"checkbox","id":"show_logo","label":"Show overlay logo","default":true},
     {"type":"range","id":"logo_size","label":"Overlay logo size","min":44,"max":140,"step":4,"unit":"px","default":60},
     {"type":"select","id":"logo_position","label":"Overlay logo position","default":"inline","options":[{"value":"inline","label":"Above headline"},{"value":"corner","label":"Upper corner"}]},
-    {"type":"select","id":"alignment","label":"Content alignment","default":"center","options":[{"value":"center","label":"Centre"},{"value":"left","label":"Left"}]}
+    {"type":"select","id":"alignment","label":"Content alignment","default":"center","options":[{"value":"center","label":"Centre"},{"value":"left","label":"Left"}]},
+    {"type":"header","content":"Hero logo"},
+    {"type":"image_picker","id":"logo","label":"Hero logo image","info":"Uses the store logo or supplied silver logo when empty."},
+    {"type":"header","content":"Padding and margin"},
+    {"type":"range","id":"padding_top","label":"Top padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"padding_bottom","label":"Bottom padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"mobile_padding_top","label":"Mobile top padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"mobile_padding_bottom","label":"Mobile bottom padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"margin_top","label":"Top margin","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"margin_bottom","label":"Bottom margin","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"header","content":"Colours"},
+    {"type":"color","id":"heading_color","label":"Heading colour"},
+    {"type":"color","id":"body_color","label":"Body text colour"},
+    {"type":"color","id":"eyebrow_color","label":"Eyebrow colour"},
+    {"type":"color","id":"detail_color","label":"Caption and link colour"},
+    {"type":"color","id":"button_background","label":"Button background"},
+    {"type":"color","id":"button_text","label":"Button text colour"},
+    {"type":"header","content":"Typography"},
+    {"type":"select","id":"heading_type","label":"Heading font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"range","id":"heading_size","label":"Heading size","min":0,"max":160,"step":2,"unit":"px","default":0,"info":"Set to 0 to use the theme size."},
+    {"type":"select","id":"body_type","label":"Body font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"range","id":"body_size","label":"Body size","min":0,"max":36,"step":1,"unit":"px","default":0,"info":"Set to 0 to use the theme size."},
+    {"type":"select","id":"eyebrow_type","label":"Eyebrow font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"select","id":"button_type","label":"Button font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"color","id":"background","label":"Hero background"},
+    {"type":"color","id":"highlight_color","label":"Headline highlight colour"},
+    {"type":"select","id":"highlight_type","label":"Headline highlight font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]}
   ],
   "presets":[{"name":"Uncle Naffy hero"}]
 }

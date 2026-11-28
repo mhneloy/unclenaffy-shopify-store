@@ -15,6 +15,12 @@ Upload the ZIP as an unpublished theme. Home uses the built-in homepage route. C
 
 In the Theme Editor, select the logo, palette, fonts, links and verified contact details. Replace the illustrative photographs through the image pickers in each page’s sections and blocks. The homepage animates its default aerial image and accepts approved aerial video through its Shopify-hosted video picker. The price rows have editable photos and support a text-only view through their **Show service images** switch.
 
+## Theme Editor styling
+
+- **Header → Book Now page** sets the header button destination. Leave it empty to follow the global Book Appointment page. **Header**, **Hero**, and **Footer** each have a logo picker and use the global **Brand logo** when that picker is empty. The hero uses the supplied silver logo when both pickers are empty.
+- Each Uncle Naffy section has its own padding, margin, colours and typography controls for the elements it displays. A blank colour or **Default** font style follows the design. The padding sliders use `-4` for the layout default, and the font-size sliders use `0` for the responsive default.
+- **Theme settings → Uncle Naffy storefront** controls the site palette, default display and body fonts, page background overrides, and overall content width and side spacing.
+
 The footer can link to approved policy pages through its policy menu. The `un-privacy`, `un-cookies`, `un-terms` and `un-cancellation` templates include review briefs in the Theme Editor. Add approved wording to the Shopify pages before linking them.
 
 ## Booking and launch

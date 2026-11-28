@@ -1,6 +1,6 @@
 {% assign s = section.settings %}
 {% if section.blocks.size > 0 %}
-  <section id="gallery" class="un-section un-gallery{% if s.feature_first %} un-gallery--featured{% endif %}" {% render 'un-section-style', section: section %}>
+  <section id="gallery" class="un-section un-gallery{% if s.feature_first %} un-gallery--featured{% endif %}" data-un-style style="{% render 'un-section-style', section: section %}">
     <div class="un-wrap">
       <div class="un-section-head">
         <div>
@@ -45,7 +45,30 @@
     {"type":"select","id":"mobile_columns","label":"Mobile columns","default":"1","options":[{"value":"1","label":"One"},{"value":"2","label":"Two"}]},
     {"type":"color","id":"background","label":"Section background"},
     {"type":"range","id":"space","label":"Desktop spacing","min":40,"max":112,"step":4,"unit":"px","default":88},
-    {"type":"range","id":"mobile_space","label":"Mobile spacing","min":32,"max":72,"step":4,"unit":"px","default":52}
+    {"type":"range","id":"mobile_space","label":"Mobile spacing","min":32,"max":72,"step":4,"unit":"px","default":52},
+    {"type":"header","content":"Padding and margin"},
+    {"type":"range","id":"padding_top","label":"Top padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"padding_bottom","label":"Bottom padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"mobile_padding_top","label":"Mobile top padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"mobile_padding_bottom","label":"Mobile bottom padding","min":-4,"max":160,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use the current default spacing."},
+    {"type":"range","id":"margin_top","label":"Top margin","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"margin_bottom","label":"Bottom margin","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"header","content":"Colours"},
+    {"type":"color","id":"heading_color","label":"Heading colour"},
+    {"type":"color","id":"body_color","label":"Body text colour"},
+    {"type":"color","id":"eyebrow_color","label":"Eyebrow colour"},
+    {"type":"color","id":"detail_color","label":"Caption and link colour"},
+    {"type":"color","id":"button_background","label":"Button background"},
+    {"type":"color","id":"button_text","label":"Button text colour"},
+    {"type":"color","id":"surface_color","label":"Card and panel background"},
+    {"type":"header","content":"Typography"},
+    {"type":"select","id":"heading_type","label":"Heading font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"range","id":"heading_size","label":"Heading size","min":0,"max":160,"step":2,"unit":"px","default":0,"info":"Set to 0 to use the theme size."},
+    {"type":"select","id":"body_type","label":"Body font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"range","id":"body_size","label":"Body size","min":0,"max":36,"step":1,"unit":"px","default":0,"info":"Set to 0 to use the theme size."},
+    {"type":"select","id":"eyebrow_type","label":"Eyebrow font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"select","id":"detail_type","label":"Caption and link font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]},
+    {"type":"select","id":"button_type","label":"Button font style","default":"default:default","options":[{"value":"default:default","label":"Default"},{"value":"default:regular","label":"Current font, regular"},{"value":"default:bold","label":"Current font, bold"},{"value":"default:italic","label":"Current font, italic"},{"value":"default:bold_italic","label":"Current font, bold italic"},{"value":"display:regular","label":"Theme display, regular"},{"value":"display:bold","label":"Theme display, bold"},{"value":"display:italic","label":"Theme display, italic"},{"value":"body:regular","label":"Theme body, regular"},{"value":"body:bold","label":"Theme body, bold"},{"value":"body:italic","label":"Theme body, italic"},{"value":"serif:regular","label":"Georgia, regular"},{"value":"sans:regular","label":"Arial, regular"},{"value":"mono:regular","label":"Monospace, regular"}]}
   ],
   "blocks":[{"type":"photo","name":"Gallery photo","settings":[
     {"type":"image_picker","id":"image","label":"Photo"},

@@ -7,7 +7,7 @@
       assign target_page = settings.un_about_page | default: pages[handle]
     when 'book'
       assign handle = 'book-appointment'
-      assign target_page = settings.un_book_page | default: pages[handle]
+      assign target_page = page_override | default: settings.un_book_page | default: pages[handle]
     when 'prices'
       assign handle = 'price-list'
       assign target_page = settings.un_prices_page | default: pages[handle] | default: pages['price-list-gallery']

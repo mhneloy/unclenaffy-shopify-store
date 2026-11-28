@@ -2349,6 +2349,32 @@
         "default": "#9B6845"
       },
       {
+        "type": "color",
+        "id": "un_button_background",
+        "label": "Filled button background"
+      },
+      {
+        "type": "color",
+        "id": "un_button_text",
+        "label": "Filled button text"
+      },
+      {
+        "type": "header",
+        "content": "Page background overrides"
+      },
+      {"type":"color","id":"un_home_background","label":"Home background"},
+      {"type":"color","id":"un_prices_background","label":"Price List background"},
+      {"type":"color","id":"un_gallery_background","label":"Gallery background"},
+      {"type":"color","id":"un_about_background","label":"About background"},
+      {"type":"color","id":"un_book_background","label":"Book Appointment background"},
+      {
+        "type": "header",
+        "content": "Content width"
+      },
+      {"type":"range","id":"un_content_width","label":"Maximum content width","min":800,"max":1600,"step":20,"unit":"px","default":1280},
+      {"type":"range","id":"un_desktop_gutter","label":"Page side padding","min":-4,"max":96,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use automatic side spacing."},
+      {"type":"range","id":"un_mobile_gutter","label":"Mobile side padding","min":-4,"max":48,"step":4,"unit":"px","default":-4,"info":"Set to -4 to use automatic side spacing."},
+      {
         "type": "header",
         "content": "Storefront pages"
       },
