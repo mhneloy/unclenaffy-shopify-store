@@ -2602,9 +2602,7 @@
       },
       "un-header": {
         "type": "un-header",
-        "custom_css": [
-          "img{mix-blend-mode: screen !important;}"
-        ],
+        "custom_css": [],
         "settings": {
           "menu": "main-menu",
           "cta": "Book now",
