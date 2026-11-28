@@ -12,13 +12,16 @@
         "eyebrow": "A considered approach",
         "heading": "The craft comes first.",
         "copy": "<p>Barbering is in the details. A clean transition, a balanced shape and a finish that works with the way you wear your hair.</p>",
-        "alignment": "left"
+        "alignment": "left",
+        "cta": "About Uncle Naffy",
+        "destination": "about"
       }
     },
     "services": {
       "type": "un-services",
       "settings": {
-        "copy": "Explore cuts, beard work and combined appointments."
+        "heading": "In the chair",
+        "copy": "Explore the service menu to find the right appointment."
       },
       "blocks": {
         "haircut": {
@@ -31,7 +34,8 @@
             "icon": "cut",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "fade"
           }
         },
         "beard": {
@@ -44,7 +48,8 @@
             "icon": "beard",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "beard"
           }
         },
         "combo": {
@@ -57,7 +62,8 @@
             "icon": "combo",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "classic"
           }
         }
       },
@@ -66,80 +72,11 @@
         "beard",
         "combo"
       ]
-    },
-    "gallery": {
-      "type": "un-gallery",
-      "settings": {
-        "cta": "View the gallery",
-        "mobile_columns": "2"
-      },
-      "blocks": {
-        "fade": {
-          "type": "photo",
-          "settings": {
-            "demo": "fade",
-            "caption": "Skin fade",
-            "alt": "Illustrative close side profile with a clean fade"
-          }
-        },
-        "beard": {
-          "type": "photo",
-          "settings": {
-            "demo": "beard",
-            "caption": "Beard detail",
-            "alt": "Illustrative close-up of a sculpted beard"
-          }
-        },
-        "crop": {
-          "type": "photo",
-          "settings": {
-            "demo": "crop",
-            "caption": "Textured crop",
-            "alt": "Illustrative textured crop with barber finishing the style"
-          }
-        }
-      },
-      "block_order": [
-        "fade",
-        "beard",
-        "crop"
-      ]
-    },
-    "founder": {
-      "type": "un-editorial",
-      "settings": {
-        "anchor": "about",
-        "eyebrow": "The founder",
-        "heading": "Meet Uncle Naffy.",
-        "copy": "<p>Discover the story behind the chair.</p>",
-        "note": "Founder biography and portrait pending.",
-        "demo_image": "portrait",
-        "ratio": "landscape",
-        "alignment": "right",
-        "cta": "About Uncle Naffy"
-      }
-    },
-    "visit": {
-      "type": "un-visit",
-      "settings": {
-        "preview": true
-      }
-    },
-    "booking": {
-      "type": "un-booking",
-      "settings": {
-        "home_mode": true,
-        "space": 64
-      }
     }
   },
   "order": [
     "hero",
     "intro",
-    "services",
-    "gallery",
-    "founder",
-    "visit",
-    "booking"
+    "services"
   ]
 }

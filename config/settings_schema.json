@@ -2365,12 +2365,12 @@
       {
         "type": "page",
         "id": "un_prices_page",
-        "label": "Price list and gallery page"
+        "label": "Price list page"
       },
       {
         "type": "page",
-        "id": "un_visit_page",
-        "label": "Location, hours and feedback page"
+        "id": "un_gallery_page",
+        "label": "Gallery page"
       },
       {
         "type": "header",

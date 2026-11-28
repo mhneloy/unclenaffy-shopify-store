@@ -1,11 +1,38 @@
 (() => {
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const videoCleanups = new WeakMap();
+  const motionCleanups = new WeakMap();
+
+  function initialiseAerialPan(hero, button) {
+    let paused = false;
+    function sync() {
+      const reduced = motionPreference.matches;
+      button.hidden = reduced;
+      hero.classList.toggle('has-un-pan', !reduced);
+      hero.classList.toggle('is-un-pan-paused', paused);
+      button.textContent = paused ? 'Play animation' : 'Pause animation';
+    }
+    function toggle() {
+      paused = !paused;
+      sync();
+    }
+    button.addEventListener('click', toggle);
+    motionPreference.addEventListener('change', sync);
+    motionCleanups.set(hero, () => {
+      button.removeEventListener('click', toggle);
+      motionPreference.removeEventListener('change', sync);
+      motionCleanups.delete(hero);
+    });
+    sync();
+  }
 
   function initialiseHero(hero) {
     const template = hero.querySelector('[data-un-video-template]');
     const button = hero.querySelector('[data-un-motion]');
-    if (!template || !button || videoCleanups.has(hero)) return;
+    if (!button || motionCleanups.has(hero)) return;
+    if (!template) {
+      if (button.hasAttribute('data-un-pan')) initialiseAerialPan(hero, button);
+      return;
+    }
 
     const container = template.parentElement;
     let video;
@@ -61,11 +88,11 @@
 
     button.addEventListener('click', togglePlayback);
     motionPreference.addEventListener('change', syncPreference);
-    videoCleanups.set(hero, () => {
+    motionCleanups.set(hero, () => {
       motionPreference.removeEventListener('change', syncPreference);
       button.removeEventListener('click', togglePlayback);
       video?.remove();
-      videoCleanups.delete(hero);
+      motionCleanups.delete(hero);
     });
     syncPreference();
   }
@@ -117,7 +144,7 @@
     syncHeader();
   });
   document.addEventListener('shopify:section:unload', (event) => {
-    event.target.querySelectorAll('[data-un-hero]').forEach((hero) => videoCleanups.get(hero)?.());
+    event.target.querySelectorAll('[data-un-hero]').forEach((hero) => motionCleanups.get(hero)?.());
   });
   window.addEventListener('scroll', syncHeader, { passive: true });
   initialiseSections(document);

@@ -1,0 +1,16 @@
+{%- liquid
+  assign width = 510
+  assign height = 1024
+  case demo
+    when 'fade', 'beard', 'crop'
+      assign fallback = demo | prepend: 'un-cut-' | append: '.jpg'
+    when 'tools', 'studio', 'portrait', 'taper', 'classic', 'towel'
+      assign fallback = demo | prepend: 'un-photo-' | append: '.jpg'
+    else
+      assign fallback = 'un-chair.jpg'
+      assign width = 1200
+      assign height = 800
+  endcase
+  assign fallback_alt = fallback_alt | default: alt
+  render 'un-image', image: image, alt: alt, fallback: fallback, fallback_alt: fallback_alt, class: class, sizes: sizes, loading: loading, width: width, height: height
+-%}

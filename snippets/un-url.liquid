@@ -3,33 +3,38 @@
     when 'home'
       echo routes.root_url
     when 'about'
-      assign target_page = settings.un_about_page | default: pages['about-uncle-naffy']
-      assign anchor = '#about'
+      assign handle = 'about-uncle-naffy'
+      assign target_page = settings.un_about_page | default: pages[handle]
     when 'book'
-      assign target_page = settings.un_book_page | default: pages['book-appointment']
-      assign anchor = '#booking'
+      assign handle = 'book-appointment'
+      assign target_page = settings.un_book_page | default: pages[handle]
     when 'prices'
-      assign target_page = settings.un_prices_page | default: pages['price-list-gallery']
-      assign anchor = '#prices'
+      assign handle = 'price-list'
+      assign target_page = settings.un_prices_page | default: pages[handle] | default: pages['price-list-gallery']
     when 'gallery'
-      assign target_page = settings.un_prices_page | default: pages['price-list-gallery']
-      assign destination = 'prices'
-      assign anchor = '#gallery'
-      assign page_anchor = '#gallery'
+      assign handle = 'gallery'
+      assign target_page = settings.un_gallery_page | default: pages[handle]
     when 'visit'
-      assign target_page = settings.un_visit_page | default: pages['location-hours-feedback']
-      assign anchor = '#visit'
+      assign handle = 'book-appointment'
+      assign target_page = settings.un_book_page | default: pages[handle]
+      assign destination = 'book'
+      assign page_anchor = '#visit'
   endcase
-  if anchor != blank
+  if handle != blank
+    assign suffix = destination | prepend: 'un-'
     if target_page != blank and target_page.url != blank
-      assign suffix = destination | prepend: 'un-'
       echo target_page.url
       unless target_page.template_suffix == suffix
         echo '?view=' | append: suffix
       endunless
-      echo page_anchor
     else
-      echo routes.root_url | append: anchor
+      assign last_character = routes.root_url | slice: -1, 1
+      echo routes.root_url
+      unless last_character == '/'
+        echo '/'
+      endunless
+      echo 'pages/' | append: handle | append: '?view=' | append: suffix
     endif
+    echo page_anchor
   endif
 -%}

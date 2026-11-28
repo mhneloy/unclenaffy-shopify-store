@@ -7,15 +7,15 @@
   <a class="un-button" href="{{ acuity_url }}">Open appointment scheduler</a>
 {% else %}
   <div class="un-booking-preview">
-    <p class="un-kicker">Booking preview</p>
-    <h2>Make time for a fresh cut.</h2>
-    <p>Online appointments will open once the booking calendar is connected.</p>
-    <ol>
-      <li>Choose a service</li>
-      <li>Choose a barber</li>
-      <li>Pick a date and time</li>
-      <li>Confirm your details</li>
-    </ol>
-    <a class="un-button un-button--outline" href="{% render 'un-url', destination: 'prices' %}">Explore the service menu</a>
+    <div class="un-booking-preview-copy">
+      <h3>{{ section_settings.placeholder_heading | escape }}</h3>
+      <p>{{ section_settings.placeholder_copy | escape }}</p>
+      <a class="un-button un-button--outline" href="{% render 'un-url', destination: 'prices' %}">Explore the price list</a>
+      {% if request.design_mode %}<p class="un-note">Use Add block in this section to choose your booking app.</p>{% endif %}
+    </div>
+    <figure class="un-editorial-media">
+      {% render 'un-demo-image', demo: 'towel', image: section_settings.image, alt: section_settings.image_alt, fallback_alt: 'Illustrative photo of hands preparing a hot towel', class: 'un-cover', sizes: '(min-width: 800px) 35vw, 90vw' %}
+      {% if section_settings.image == blank %}<figcaption>Illustrative photography</figcaption>{% endif %}
+    </figure>
   </div>
 {% endif %}

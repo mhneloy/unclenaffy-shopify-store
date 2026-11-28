@@ -1,0 +1,86 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "masthead": {
+      "type": "un-editorial",
+      "settings": {
+        "main_heading": true,
+        "eyebrow": "The work",
+        "heading": "Gallery.",
+        "copy": "<p>Explore the shape, texture and finish of different cuts. Bring a reference image to discuss at your appointment.</p>",
+        "demo_image": "chair",
+        "demo_alt": "Illustrative photo of close-up clipper work",
+        "alignment": "right",
+        "banner": true,
+        "space": 56,
+        "mobile_space": 40,
+        "cta": "Explore the gallery",
+        "link": "#gallery"
+      }
+    },
+    "work": {
+      "type": "un-gallery",
+      "settings": {
+        "eyebrow": "Cuts & finishes",
+        "heading": "The details up close.",
+        "feature_first": true,
+        "mobile_columns": "2",
+        "destination": "book",
+        "cta": "Book an appointment"
+      },
+      "blocks": {
+        "work": {
+          "type": "photo",
+          "settings": {
+            "demo": "crop",
+            "caption": "Textured crop",
+            "alt": "Illustrative finished textured crop with a close fade"
+          }
+        },
+        "beard": {
+          "type": "photo",
+          "settings": {
+            "demo": "beard",
+            "caption": "Beard detail",
+            "alt": "Illustrative profile with a sculpted beard"
+          }
+        },
+        "fade": {
+          "type": "photo",
+          "settings": {
+            "demo": "fade",
+            "caption": "Skin fade",
+            "alt": "Illustrative side profile with a clean skin fade"
+          }
+        },
+        "taper": {
+          "type": "photo",
+          "settings": {
+            "demo": "taper",
+            "caption": "Natural taper",
+            "alt": "Illustrative curly top with a temple taper"
+          }
+        },
+        "classic": {
+          "type": "photo",
+          "settings": {
+            "demo": "classic",
+            "caption": "Scissor cut",
+            "alt": "Illustrative classic scissor cut with a tidy neckline"
+          }
+        }
+      },
+      "block_order": [
+        "work",
+        "beard",
+        "fade",
+        "taper",
+        "classic"
+      ]
+    }
+  },
+  "order": [
+    "masthead",
+    "work"
+  ]
+}

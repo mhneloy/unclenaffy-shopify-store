@@ -1,43 +1,65 @@
 {% assign s = section.settings %}
-{% assign booking_page = settings.un_book_page | default: pages['book-appointment'] %}
-{% if s.home_mode == false or booking_page == blank %}
-  <section id="booking" class="un-section un-booking" {% render 'un-section-style', section: section %}>
-    <div class="un-wrap">
-      {% unless s.home_mode %}
-        <div class="un-page-heading">
-          <p class="un-kicker">{{ s.eyebrow | escape }}</p>
-          <h1>{{ s.heading | escape }}</h1>
-          {% if s.copy != blank %}<p>{{ s.copy | escape }}</p>{% endif %}
-        </div>
-      {% endunless %}
-      {% render 'un-booking-panel' %}
-      {% unless s.home_mode %}
-        <div class="un-booking-help">
-          {% if s.policies != blank %}
-            <div><h2>Deposits &amp; cancellation</h2><div class="un-prose">{{ s.policies }}</div></div>
-          {% endif %}
-          <div>
-            <h2>Need help?</h2>
-            <a href="{% render 'un-url', destination: 'visit' %}">Location and contact details</a>
-            {% if settings.un_email != blank %}<p><a href="mailto:{{ settings.un_email | escape }}">{{ settings.un_email | escape }}</a></p>{% endif %}
-          </div>
-        </div>
-      {% endunless %}
+{% assign app_blocks = section.blocks | where: 'type', '@app' %}
+{% assign questions = section.blocks | where: 'type', 'question' %}
+<section id="booking" class="un-section un-booking" {% render 'un-section-style', section: section %}>
+  <div class="un-wrap">
+    <div class="un-section-head">
+      <div>
+        <p class="un-kicker">{{ s.eyebrow | escape }}</p>
+        <h2>{{ s.heading | escape }}</h2>
+      </div>
+      <p>{{ s.copy | escape }}</p>
     </div>
-  </section>
-{% endif %}
+    {% if app_blocks.size > 0 %}
+      <div class="un-booking-app">
+        {% for block in app_blocks %}{% render block %}{% endfor %}
+      </div>
+    {% else %}
+      {% render 'un-booking-panel', section_settings: s %}
+    {% endif %}
+    {% if questions.size > 0 or s.policies != blank %}
+      <div class="un-booking-help">
+        <div>
+          <h3>{{ s.faq_heading | escape }}</h3>
+          <a href="{% render 'un-url', destination: 'visit' %}">Location &amp; opening hours</a>
+          {% if settings.un_email != blank %}<p><a href="mailto:{{ settings.un_email | escape }}">{{ settings.un_email | escape }}</a></p>{% endif %}
+        </div>
+        <div class="un-booking-questions">
+          {% for block in questions %}
+            <details {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.title | escape }}</summary>
+              <div class="un-prose">{{ block.settings.answer }}</div>
+            </details>
+          {% endfor %}
+          {% if s.policies != blank %}<div class="un-prose">{{ s.policies }}</div>{% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
 {% schema %}
 {
   "name":"Uncle Naffy booking",
   "settings":[
-    {"type":"checkbox","id":"home_mode","label":"Show as Home booking fallback","default":false},
-    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Book an appointment"},
-    {"type":"text","id":"heading","label":"Heading","default":"Your time in the chair."},
-    {"type":"textarea","id":"copy","label":"Introduction","default":"Choose a service and find a time that works for you."},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"The booking calendar"},
+    {"type":"text","id":"heading","label":"Heading","default":"Choose your appointment."},
+    {"type":"textarea","id":"copy","label":"Introduction","default":"Start with the service you want, then pick an available time in the chair."},
+    {"type":"text","id":"placeholder_heading","label":"Placeholder heading","default":"Online booking is coming soon."},
+    {"type":"textarea","id":"placeholder_copy","label":"Placeholder text","default":"In the meantime, check the menu to choose the cut or grooming service you want."},
+    {"type":"image_picker","id":"image","label":"Placeholder photo"},
+    {"type":"text","id":"image_alt","label":"Photo alt text"},
+    {"type":"text","id":"faq_heading","label":"FAQ heading","default":"Before your visit"},
     {"type":"richtext","id":"policies","label":"Approved deposit and cancellation information"},
     {"type":"color","id":"background","label":"Section background"},
     {"type":"range","id":"space","label":"Desktop spacing","min":40,"max":112,"step":4,"unit":"px","default":88},
     {"type":"range","id":"mobile_space","label":"Mobile spacing","min":32,"max":72,"step":4,"unit":"px","default":52}
+  ],
+  "blocks":[
+    {"type":"@app"},
+    {"type":"question","name":"Question","settings":[
+      {"type":"text","id":"title","label":"Question","default":"What should I bring?"},
+      {"type":"richtext","id":"answer","label":"Answer","default":"<p>A reference photo can help you and your barber agree on the shape, length and finish.</p>"}
+    ]}
   ],
   "presets":[{"name":"Uncle Naffy booking"}]
 }

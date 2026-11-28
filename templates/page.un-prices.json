@@ -1,13 +1,31 @@
 {
   "layout": "unclenaffy",
   "sections": {
+    "masthead": {
+      "type": "un-editorial",
+      "settings": {
+        "main_heading": true,
+        "eyebrow": "Cuts & grooming",
+        "heading": "Price list.",
+        "copy": "<p>Find the right appointment, from a clean fade to a beard trim or a full cut and finish.</p>",
+        "demo_image": "tools",
+        "demo_alt": "Illustrative photo of barber tools on a charcoal worktop",
+        "alignment": "right",
+        "ratio": "wide",
+        "space": 56,
+        "mobile_space": 40,
+        "cta": "Browse services",
+        "link": "#prices"
+      }
+    },
     "services": {
       "type": "un-services",
       "settings": {
         "layout": "list",
         "eyebrow": "The service menu",
-        "heading": "Price list & gallery.",
-        "copy": "Prices and timings marked Demo are examples pending approval."
+        "heading": "Cuts, grooming & add-ons.",
+        "copy": "The prices and timings shown are examples from the brief.",
+        "space": 56
       },
       "blocks": {
         "haircut": {
@@ -20,7 +38,8 @@
             "icon": "cut",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "fade"
           }
         },
         "beard": {
@@ -33,7 +52,8 @@
             "icon": "beard",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "beard"
           }
         },
         "combo": {
@@ -46,59 +66,64 @@
             "icon": "combo",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "classic"
           }
         },
         "shave": {
           "type": "service",
           "settings": {
             "title": "Hot Towel Shave",
-            "description": "",
+            "description": "A traditional shave with hot towel preparation.",
             "duration": "30 min",
             "price": "$40",
             "icon": "beard",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "towel"
           }
         },
         "colour": {
           "type": "service",
           "settings": {
             "title": "Hair Color",
-            "description": "",
+            "description": "Colour work with time to discuss the finish.",
             "duration": "60 min",
             "price": "$70",
             "icon": "cut",
             "category": "Haircuts & grooming",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "crop"
           }
         },
         "scalp": {
           "type": "service",
           "settings": {
             "title": "Scalp Treatment",
-            "description": "",
-            "duration": "",
+            "description": "A grooming add-on focused on the scalp.",
+            "duration": "Varies",
             "price": "$15",
             "icon": "combo",
             "category": "Add-ons",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "tools"
           }
         },
         "conditioning": {
           "type": "service",
           "settings": {
             "title": "Beard Conditioning",
-            "description": "",
-            "duration": "",
+            "description": "A conditioning add-on for beard care.",
+            "duration": "Varies",
             "price": "$10",
             "icon": "beard",
             "category": "Add-ons",
             "demo": true,
-            "visible": true
+            "visible": true,
+            "demo_image": "beard"
           }
         }
       },
@@ -111,48 +136,10 @@
         "scalp",
         "conditioning"
       ]
-    },
-    "gallery": {
-      "type": "un-gallery",
-      "settings": {
-        "cta": "Book appointment",
-        "destination": "book"
-      },
-      "blocks": {
-        "fade": {
-          "type": "photo",
-          "settings": {
-            "demo": "fade",
-            "caption": "Skin fade",
-            "alt": "Illustrative close side profile with a clean fade"
-          }
-        },
-        "beard": {
-          "type": "photo",
-          "settings": {
-            "demo": "beard",
-            "caption": "Beard detail",
-            "alt": "Illustrative close-up of a sculpted beard"
-          }
-        },
-        "crop": {
-          "type": "photo",
-          "settings": {
-            "demo": "crop",
-            "caption": "Textured crop",
-            "alt": "Illustrative textured crop with barber finishing the style"
-          }
-        }
-      },
-      "block_order": [
-        "fade",
-        "beard",
-        "crop"
-      ]
     }
   },
   "order": [
-    "services",
-    "gallery"
+    "masthead",
+    "services"
   ]
 }

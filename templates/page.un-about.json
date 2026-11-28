@@ -8,27 +8,29 @@
         "eyebrow": "Behind the chair",
         "heading": "Meet Uncle Naffy.",
         "main_heading": true,
-        "copy": "<p>Discover the story behind the chair.</p>",
-        "note": "Founder biography and portrait pending.",
+        "copy": "<p>Uncle Naffy is built around a simple idea: a good cut starts with understanding how you want to wear it.</p>",
+        "note": "Founder biography and portrait coming soon.",
         "demo_image": "portrait",
-        "ratio": "portrait",
-        "alignment": "right"
-      }
-    },
-    "story": {
-      "type": "un-story",
-      "settings": {
-        "eyebrow": "The story",
-        "heading": "How it started.",
-        "copy": "<p>The founder?s account of how Uncle Naffy began is awaiting approval.</p>"
+        "demo_caption": "Illustrative barber portrait",
+        "demo_alt": "Illustrative portrait of a barber from behind",
+        "ratio": "landscape",
+        "alignment": "right",
+        "space": 56,
+        "mobile_space": 40
       }
     },
     "vision": {
-      "type": "un-story",
+      "type": "un-editorial",
       "settings": {
-        "eyebrow": "The vision",
+        "eyebrow": "The approach",
         "heading": "Care in every cut.",
-        "copy": "<p>A considered appointment makes room to talk through the shape, the finish and how you like to wear your hair.</p>"
+        "copy": "<p>Start with a conversation about shape, length and upkeep. Then consider the small details that make the cut work for you, from how a fade blends to how your neckline grows out.</p>",
+        "demo_image": "tools",
+        "demo_alt": "Illustrative photo of scissors, a comb and clippers",
+        "cta": "See the service menu",
+        "destination": "prices",
+        "space": 80,
+        "alignment": "left"
       }
     },
     "craft": {
@@ -36,45 +38,45 @@
       "settings": {
         "eyebrow": "A closer look",
         "heading": "Inside the chair.",
-        "destination": "book",
-        "cta": "Book your appointment"
+        "destination": "gallery",
+        "cta": "View the gallery",
+        "mobile_columns": "2"
       },
       "blocks": {
-        "fade": {
+        "hands": {
           "type": "photo",
           "settings": {
-            "demo": "fade",
-            "caption": "Skin fade",
-            "alt": "Illustrative close side profile with a clean fade"
+            "demo": "chair",
+            "caption": "Clipper work",
+            "alt": "Illustrative close-up of a barber working on a fade"
           }
         },
-        "beard": {
+        "studio": {
           "type": "photo",
           "settings": {
-            "demo": "beard",
-            "caption": "Beard detail",
-            "alt": "Illustrative close-up of a sculpted beard"
+            "demo": "studio",
+            "caption": "The barber chair",
+            "alt": "Illustrative photo of an empty black leather barber chair"
           }
         },
         "crop": {
           "type": "photo",
           "settings": {
             "demo": "crop",
-            "caption": "Textured crop",
-            "alt": "Illustrative textured crop with barber finishing the style"
+            "caption": "Texture and finish",
+            "alt": "Illustrative photo of a barber finishing a textured crop"
           }
         }
       },
       "block_order": [
-        "fade",
-        "beard",
+        "hands",
+        "studio",
         "crop"
       ]
     }
   },
   "order": [
     "founder",
-    "story",
     "vision",
     "craft"
   ]

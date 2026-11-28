@@ -1,6 +1,6 @@
 {% assign s = section.settings %}
 {% if section.blocks.size > 0 %}
-  <section id="gallery" class="un-section un-gallery" {% render 'un-section-style', section: section %}>
+  <section id="gallery" class="un-section un-gallery{% if s.feature_first %} un-gallery--featured{% endif %}" {% render 'un-section-style', section: section %}>
     <div class="un-wrap">
       <div class="un-section-head">
         <div>
@@ -13,11 +13,10 @@
         {% for block in section.blocks %}
           {% assign item = block.settings %}
           {% if item.image != blank or item.demo != 'none' %}
-            {% assign fallback = '' %}
-            {% if item.demo != 'none' %}{% assign fallback = item.demo | prepend: 'un-cut-' | append: '.jpg' %}{% endif %}
             <figure class="un-gallery-item" {{ block.shopify_attributes }}>
               <div class="un-gallery-image un-ratio--{{ s.ratio }}">
-                {% render 'un-image', image: item.image, fallback: fallback, alt: item.alt, fallback_alt: item.alt, class: 'un-cover', sizes: '(min-width: 1050px) 33vw, (min-width: 641px) 48vw, 92vw', width: 512, height: 1024 %}
+                {% if s.feature_first and forloop.first %}{% assign gallery_sizes = '(min-width: 1050px) 65vw, 92vw' %}{% else %}{% assign gallery_sizes = '(min-width: 1050px) 33vw, (min-width: 641px) 48vw, 92vw' %}{% endif %}
+                {% render 'un-demo-image', image: item.image, demo: item.demo, alt: item.alt, class: 'un-cover', sizes: gallery_sizes %}
               </div>
               {% if item.caption != blank or item.image == blank %}
                 <figcaption>
@@ -42,6 +41,7 @@
     {"type":"select","id":"destination","label":"Button destination","default":"gallery","options":[{"value":"gallery","label":"Full gallery"},{"value":"book","label":"Booking"}]},
     {"type":"select","id":"ratio","label":"Image crop","default":"portrait","options":[{"value":"portrait","label":"Portrait"},{"value":"square","label":"Square"},{"value":"landscape","label":"Landscape"}]},
     {"type":"range","id":"columns","label":"Desktop columns","min":2,"max":4,"step":1,"default":3},
+    {"type":"checkbox","id":"feature_first","label":"Feature the first photo","default":false},
     {"type":"select","id":"mobile_columns","label":"Mobile columns","default":"1","options":[{"value":"1","label":"One"},{"value":"2","label":"Two"}]},
     {"type":"color","id":"background","label":"Section background"},
     {"type":"range","id":"space","label":"Desktop spacing","min":40,"max":112,"step":4,"unit":"px","default":88},
@@ -51,7 +51,7 @@
     {"type":"image_picker","id":"image","label":"Photo"},
     {"type":"text","id":"alt","label":"Photo alt text"},
     {"type":"text","id":"caption","label":"Caption"},
-    {"type":"select","id":"demo","label":"Fallback image","default":"none","options":[{"value":"none","label":"None"},{"value":"fade","label":"Skin fade"},{"value":"beard","label":"Beard detail"},{"value":"crop","label":"Textured crop"}]}
+    {"type":"select","id":"demo","label":"Fallback image","default":"fade","options":[{"value":"none","label":"None"},{"value":"chair","label":"Barber at work"},{"value":"fade","label":"Skin fade"},{"value":"beard","label":"Beard detail"},{"value":"crop","label":"Textured crop"},{"value":"taper","label":"Natural taper"},{"value":"classic","label":"Classic scissor cut"},{"value":"towel","label":"Hot towel"},{"value":"studio","label":"Empty barber chair"}]}
   ]}],
   "presets":[{"name":"Uncle Naffy gallery"}]
 }

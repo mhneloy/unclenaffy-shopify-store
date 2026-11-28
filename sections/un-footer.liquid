@@ -17,6 +17,7 @@
         {% if settings.un_phone != blank %}<a href="tel:{{ settings.un_phone | remove: ' ' | escape }}">{{ settings.un_phone | escape }}</a>{% endif %}
         {% if settings.un_instagram != blank %}<a href="{{ settings.un_instagram }}">Instagram</a>{% endif %}
         {% if settings.un_tiktok != blank %}<a href="{{ settings.un_tiktok }}">TikTok</a>{% endif %}
+        <a href="{% render 'un-url', destination: 'visit' %}">Location &amp; opening hours</a>
         <a href="{% render 'un-url', destination: 'book' %}">Book an appointment</a>
       </div>
     </div>
