@@ -1,0 +1,65 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "visit": {
+      "type": "un-visit",
+      "settings": {},
+      "blocks": {
+        "monday": {
+          "type": "hours",
+          "settings": {
+            "day": "Monday"
+          }
+        },
+        "tuesday": {
+          "type": "hours",
+          "settings": {
+            "day": "Tuesday"
+          }
+        },
+        "wednesday": {
+          "type": "hours",
+          "settings": {
+            "day": "Wednesday"
+          }
+        },
+        "thursday": {
+          "type": "hours",
+          "settings": {
+            "day": "Thursday"
+          }
+        },
+        "friday": {
+          "type": "hours",
+          "settings": {
+            "day": "Friday"
+          }
+        },
+        "saturday": {
+          "type": "hours",
+          "settings": {
+            "day": "Saturday"
+          }
+        },
+        "sunday": {
+          "type": "hours",
+          "settings": {
+            "day": "Sunday"
+          }
+        }
+      },
+      "block_order": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ]
+    }
+  },
+  "order": [
+    "visit"
+  ]
+}

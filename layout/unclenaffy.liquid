@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.un_background }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {% if settings.favicon != blank %}
+      <link rel="icon" href="{{ settings.favicon | image_url: width: 32 }}">
+    {% endif %}
+    {% liquid
+      case template.suffix
+        when 'un-about'
+          assign default_description = 'Meet Uncle Naffy and discover the approach to cuts, fades and beard work.'
+        when 'un-book'
+          assign default_description = 'Explore how to book a barbering appointment with Uncle Naffy.'
+        when 'un-prices'
+          assign default_description = 'Browse the Uncle Naffy service menu and haircut gallery.'
+        when 'un-visit'
+          assign default_description = 'Find location, opening hours and contact information for Uncle Naffy.'
+        else
+          assign default_description = 'Uncle Naffy barbering. Explore cuts, beard grooming and appointments.'
+      endcase
+    %}
+    <title>{% if template.name == 'index' %}Uncle Naffy Barbering{% else %}{{ page_title | escape }}{% unless page_title contains 'Uncle Naffy' %} | Uncle Naffy{% endunless %}{% endif %}</title>
+    <meta name="description" content="{{ page_description | default: default_description | escape }}">
+    {% assign display_font = settings.un_display_font %}
+    {% assign body_font = settings.un_body_font %}
+    {% style %}
+      {{ display_font | font_face: font_display: 'swap' }}
+      {{ body_font | font_face: font_display: 'swap' }}
+      :root {
+        --un-bg: {{ settings.un_background }};
+        --un-panel: {{ settings.un_surface }};
+        --un-text: {{ settings.un_foreground }};
+        --un-muted: {{ settings.un_muted }};
+        --un-copper: {{ settings.un_accent }};
+        --un-heading: {{ display_font.family }}, {{ display_font.fallback_families }};
+        --un-body: {{ body_font.family }}, {{ body_font.fallback_families }};
+      }
+    {% endstyle %}
+    {{ 'unclenaffy.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'unclenaffy.js' | asset_url }}" defer></script>
+    {% render 'social-meta-tags' %}
+    {{ content_for_header }}
+  </head>
+  <body class="un-site{% if template.name == 'index' %} un-home{% endif %}">
+    <a class="un-skip" href="#MainContent">Skip to content</a>
+    {% section 'un-header' %}
+    <main id="MainContent">
+      {{ content_for_layout }}
+    </main>
+    {% section 'un-footer' %}
+  </body>
+</html>

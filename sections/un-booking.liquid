@@ -1,0 +1,44 @@
+{% assign s = section.settings %}
+{% assign booking_page = settings.un_book_page | default: pages['book-appointment'] %}
+{% if s.home_mode == false or booking_page == blank %}
+  <section id="booking" class="un-section un-booking" {% render 'un-section-style', section: section %}>
+    <div class="un-wrap">
+      {% unless s.home_mode %}
+        <div class="un-page-heading">
+          <p class="un-kicker">{{ s.eyebrow | escape }}</p>
+          <h1>{{ s.heading | escape }}</h1>
+          {% if s.copy != blank %}<p>{{ s.copy | escape }}</p>{% endif %}
+        </div>
+      {% endunless %}
+      {% render 'un-booking-panel' %}
+      {% unless s.home_mode %}
+        <div class="un-booking-help">
+          {% if s.policies != blank %}
+            <div><h2>Deposits &amp; cancellation</h2><div class="un-prose">{{ s.policies }}</div></div>
+          {% endif %}
+          <div>
+            <h2>Need help?</h2>
+            <a href="{% render 'un-url', destination: 'visit' %}">Location and contact details</a>
+            {% if settings.un_email != blank %}<p><a href="mailto:{{ settings.un_email | escape }}">{{ settings.un_email | escape }}</a></p>{% endif %}
+          </div>
+        </div>
+      {% endunless %}
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{
+  "name":"Uncle Naffy booking",
+  "settings":[
+    {"type":"checkbox","id":"home_mode","label":"Show as Home booking fallback","default":false},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Book an appointment"},
+    {"type":"text","id":"heading","label":"Heading","default":"Your time in the chair."},
+    {"type":"textarea","id":"copy","label":"Introduction","default":"Choose a service and find a time that works for you."},
+    {"type":"richtext","id":"policies","label":"Approved deposit and cancellation information"},
+    {"type":"color","id":"background","label":"Section background"},
+    {"type":"range","id":"space","label":"Desktop spacing","min":40,"max":112,"step":4,"unit":"px","default":88},
+    {"type":"range","id":"mobile_space","label":"Mobile spacing","min":32,"max":72,"step":4,"unit":"px","default":52}
+  ],
+  "presets":[{"name":"Uncle Naffy booking"}]
+}
+{% endschema %}

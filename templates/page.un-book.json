@@ -1,0 +1,12 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "booking": {
+      "type": "un-booking",
+      "settings": {}
+    }
+  },
+  "order": [
+    "booking"
+  ]
+}

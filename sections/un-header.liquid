@@ -1,0 +1,21 @@
+<header class="un-header{% if section.settings.sticky %} un-header--sticky{% endif %}">
+  <div class="un-wrap un-header-inner">
+    <a class="un-brand" href="{{ routes.root_url }}" aria-label="Uncle Naffy home">{% render 'un-logo' %}</a>
+    <nav class="un-desktop-nav" aria-label="Main navigation">{% render 'un-nav', menu: section.settings.menu %}</nav>
+    <a class="un-button un-button--header" href="{% render 'un-url', destination: 'book' %}">{{ section.settings.cta | escape }}</a>
+    <details class="un-mobile-nav" data-un-menu>
+      <summary aria-label="Toggle menu"><span></span><span></span></summary>
+      <nav aria-label="Mobile navigation">{% render 'un-nav', menu: section.settings.menu %}</nav>
+    </details>
+  </div>
+</header>
+{% schema %}
+{
+  "name": "Uncle Naffy header",
+  "settings": [
+    {"type":"link_list","id":"menu","label":"Navigation menu"},
+    {"type":"text","id":"cta","label":"Booking label","default":"Book now"},
+    {"type":"checkbox","id":"sticky","label":"Sticky header","default":true}
+  ]
+}
+{% endschema %}

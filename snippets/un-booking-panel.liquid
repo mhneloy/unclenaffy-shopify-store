@@ -1,0 +1,21 @@
+{% assign acuity_url = settings.un_acuity_url %}
+{% assign acuity_embed = settings.un_acuity_embed_url | default: acuity_url %}
+{% if acuity_url != blank %}
+  {% if settings.un_acuity_embed and acuity_embed != blank %}
+    <iframe class="un-booking-frame" title="Uncle Naffy appointment scheduling" src="{{ acuity_embed | escape }}" width="1000" height="770" loading="lazy"></iframe>
+  {% endif %}
+  <a class="un-button" href="{{ acuity_url }}">Open appointment scheduler</a>
+{% else %}
+  <div class="un-booking-preview">
+    <p class="un-kicker">Booking preview</p>
+    <h2>Make time for a fresh cut.</h2>
+    <p>Online appointments will open once the booking calendar is connected.</p>
+    <ol>
+      <li>Choose a service</li>
+      <li>Choose a barber</li>
+      <li>Pick a date and time</li>
+      <li>Confirm your details</li>
+    </ol>
+    <a class="un-button un-button--outline" href="{% render 'un-url', destination: 'prices' %}">Explore the service menu</a>
+  </div>
+{% endif %}

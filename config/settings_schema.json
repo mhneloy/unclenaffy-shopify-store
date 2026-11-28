@@ -2297,5 +2297,140 @@
         "label": "Image in cart page"
       }
     ]
+  },
+  {
+    "name": "Uncle Naffy storefront",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "un_logo",
+        "label": "Brand logo"
+      },
+      {
+        "type": "font_picker",
+        "id": "un_display_font",
+        "label": "Display font",
+        "default": "georgia_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "un_body_font",
+        "label": "Body font",
+        "default": "assistant_n4"
+      },
+      {
+        "type": "color",
+        "id": "un_background",
+        "label": "Page background",
+        "default": "#111110"
+      },
+      {
+        "type": "color",
+        "id": "un_surface",
+        "label": "Panel background",
+        "default": "#1D1B19"
+      },
+      {
+        "type": "color",
+        "id": "un_foreground",
+        "label": "Primary text",
+        "default": "#F5F2ED"
+      },
+      {
+        "type": "color",
+        "id": "un_muted",
+        "label": "Secondary text",
+        "default": "#BDB6AE"
+      },
+      {
+        "type": "color",
+        "id": "un_accent",
+        "label": "Brown accent",
+        "default": "#9B6845"
+      },
+      {
+        "type": "header",
+        "content": "Storefront pages"
+      },
+      {
+        "type": "page",
+        "id": "un_about_page",
+        "label": "About page"
+      },
+      {
+        "type": "page",
+        "id": "un_book_page",
+        "label": "Book appointment page"
+      },
+      {
+        "type": "page",
+        "id": "un_prices_page",
+        "label": "Price list and gallery page"
+      },
+      {
+        "type": "page",
+        "id": "un_visit_page",
+        "label": "Location, hours and feedback page"
+      },
+      {
+        "type": "header",
+        "content": "Acuity scheduling"
+      },
+      {
+        "type": "url",
+        "id": "un_acuity_url",
+        "label": "Hosted Acuity scheduling URL"
+      },
+      {
+        "type": "url",
+        "id": "un_acuity_embed_url",
+        "label": "Acuity iframe URL if different"
+      },
+      {
+        "type": "checkbox",
+        "id": "un_acuity_embed",
+        "label": "Embed the Acuity scheduler",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Confirmed location and contact"
+      },
+      {
+        "type": "textarea",
+        "id": "un_address",
+        "label": "Address"
+      },
+      {
+        "type": "text",
+        "id": "un_postcode",
+        "label": "Postcode"
+      },
+      {
+        "type": "url",
+        "id": "un_directions",
+        "label": "Directions URL"
+      },
+      {
+        "type": "text",
+        "id": "un_phone",
+        "label": "Telephone number"
+      },
+      {
+        "type": "text",
+        "id": "un_email",
+        "label": "Contact email"
+      },
+      {
+        "type": "url",
+        "id": "un_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "un_tiktok",
+        "label": "TikTok URL"
+      }
+    ]
   }
 ]

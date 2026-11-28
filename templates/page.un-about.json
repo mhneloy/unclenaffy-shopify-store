@@ -1,0 +1,81 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "founder": {
+      "type": "un-editorial",
+      "settings": {
+        "anchor": "about",
+        "eyebrow": "Behind the chair",
+        "heading": "Meet Uncle Naffy.",
+        "main_heading": true,
+        "copy": "<p>Discover the story behind the chair.</p>",
+        "note": "Founder biography and portrait pending.",
+        "demo_image": "portrait",
+        "ratio": "portrait",
+        "alignment": "right"
+      }
+    },
+    "story": {
+      "type": "un-story",
+      "settings": {
+        "eyebrow": "The story",
+        "heading": "How it started.",
+        "copy": "<p>The founder?s account of how Uncle Naffy began is awaiting approval.</p>"
+      }
+    },
+    "vision": {
+      "type": "un-story",
+      "settings": {
+        "eyebrow": "The vision",
+        "heading": "Care in every cut.",
+        "copy": "<p>A considered appointment makes room to talk through the shape, the finish and how you like to wear your hair.</p>"
+      }
+    },
+    "craft": {
+      "type": "un-gallery",
+      "settings": {
+        "eyebrow": "A closer look",
+        "heading": "Inside the chair.",
+        "destination": "book",
+        "cta": "Book your appointment"
+      },
+      "blocks": {
+        "fade": {
+          "type": "photo",
+          "settings": {
+            "demo": "fade",
+            "caption": "Skin fade",
+            "alt": "Illustrative close side profile with a clean fade"
+          }
+        },
+        "beard": {
+          "type": "photo",
+          "settings": {
+            "demo": "beard",
+            "caption": "Beard detail",
+            "alt": "Illustrative close-up of a sculpted beard"
+          }
+        },
+        "crop": {
+          "type": "photo",
+          "settings": {
+            "demo": "crop",
+            "caption": "Textured crop",
+            "alt": "Illustrative textured crop with barber finishing the style"
+          }
+        }
+      },
+      "block_order": [
+        "fade",
+        "beard",
+        "crop"
+      ]
+    }
+  },
+  "order": [
+    "founder",
+    "story",
+    "vision",
+    "craft"
+  ]
+}

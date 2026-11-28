@@ -1,0 +1,58 @@
+{% assign s = section.settings %}
+{% if section.blocks.size > 0 %}
+  <section id="gallery" class="un-section un-gallery" {% render 'un-section-style', section: section %}>
+    <div class="un-wrap">
+      <div class="un-section-head">
+        <div>
+          {% if s.eyebrow != blank %}<p class="un-kicker">{{ s.eyebrow | escape }}</p>{% endif %}
+          <h2>{{ s.heading | escape }}</h2>
+        </div>
+        {% if s.cta != blank %}<a class="un-button un-button--outline" href="{% render 'un-url', destination: s.destination %}">{{ s.cta | escape }}</a>{% endif %}
+      </div>
+      <div class="un-gallery-grid" style="--un-columns: {{ s.columns }}; --un-small-columns: {{ s.mobile_columns }};">
+        {% for block in section.blocks %}
+          {% assign item = block.settings %}
+          {% if item.image != blank or item.demo != 'none' %}
+            {% assign fallback = '' %}
+            {% if item.demo != 'none' %}{% assign fallback = item.demo | prepend: 'un-cut-' | append: '.jpg' %}{% endif %}
+            <figure class="un-gallery-item" {{ block.shopify_attributes }}>
+              <div class="un-gallery-image un-ratio--{{ s.ratio }}">
+                {% render 'un-image', image: item.image, fallback: fallback, alt: item.alt, fallback_alt: item.alt, class: 'un-cover', sizes: '(min-width: 1050px) 33vw, (min-width: 641px) 48vw, 92vw', width: 512, height: 1024 %}
+              </div>
+              {% if item.caption != blank or item.image == blank %}
+                <figcaption>
+                  {% if item.caption != blank %}{{ item.caption | escape }}{% endif %}
+                  {% if item.image == blank %}<small>Illustrative photography</small>{% endif %}
+                </figcaption>
+              {% endif %}
+            </figure>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{
+  "name":"Uncle Naffy gallery",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Cuts & finishes"},
+    {"type":"text","id":"heading","label":"Heading","default":"Inside the chair."},
+    {"type":"text","id":"cta","label":"Button label"},
+    {"type":"select","id":"destination","label":"Button destination","default":"gallery","options":[{"value":"gallery","label":"Full gallery"},{"value":"book","label":"Booking"}]},
+    {"type":"select","id":"ratio","label":"Image crop","default":"portrait","options":[{"value":"portrait","label":"Portrait"},{"value":"square","label":"Square"},{"value":"landscape","label":"Landscape"}]},
+    {"type":"range","id":"columns","label":"Desktop columns","min":2,"max":4,"step":1,"default":3},
+    {"type":"select","id":"mobile_columns","label":"Mobile columns","default":"1","options":[{"value":"1","label":"One"},{"value":"2","label":"Two"}]},
+    {"type":"color","id":"background","label":"Section background"},
+    {"type":"range","id":"space","label":"Desktop spacing","min":40,"max":112,"step":4,"unit":"px","default":88},
+    {"type":"range","id":"mobile_space","label":"Mobile spacing","min":32,"max":72,"step":4,"unit":"px","default":52}
+  ],
+  "blocks":[{"type":"photo","name":"Gallery photo","settings":[
+    {"type":"image_picker","id":"image","label":"Photo"},
+    {"type":"text","id":"alt","label":"Photo alt text"},
+    {"type":"text","id":"caption","label":"Caption"},
+    {"type":"select","id":"demo","label":"Fallback image","default":"none","options":[{"value":"none","label":"None"},{"value":"fade","label":"Skin fade"},{"value":"beard","label":"Beard detail"},{"value":"crop","label":"Textured crop"}]}
+  ]}],
+  "presets":[{"name":"Uncle Naffy gallery"}]
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "policy": {
+      "type": "un-policy",
+      "settings": {
+        "heading": "Cancellation, Rescheduling, Deposits & Refunds",
+        "draft_brief": "<p>Confirm deposit terms, notice periods, rescheduling, refunds, late arrivals and no-show handling. Match approved rules in Acuity.</p>"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "services": {
+      "type": "un-services",
+      "settings": {
+        "layout": "list",
+        "eyebrow": "The service menu",
+        "heading": "Price list & gallery.",
+        "copy": "Prices and timings marked Demo are examples pending approval."
+      },
+      "blocks": {
+        "haircut": {
+          "type": "service",
+          "settings": {
+            "title": "Haircut",
+            "description": "A tailored cut with a clean finish.",
+            "duration": "30 min",
+            "price": "$35",
+            "icon": "cut",
+            "category": "Haircuts & grooming",
+            "demo": true,
+            "visible": true
+          }
+        },
+        "beard": {
+          "type": "service",
+          "settings": {
+            "title": "Beard Trim",
+            "description": "Shape and definition for your beard.",
+            "duration": "20 min",
+            "price": "$25",
+            "icon": "beard",
+            "category": "Haircuts & grooming",
+            "demo": true,
+            "visible": true
+          }
+        },
+        "combo": {
+          "type": "service",
+          "settings": {
+            "title": "Haircut & Beard",
+            "description": "A cut and beard trim in one appointment.",
+            "duration": "45 min",
+            "price": "$55",
+            "icon": "combo",
+            "category": "Haircuts & grooming",
+            "demo": true,
+            "visible": true
+          }
+        },
+        "shave": {
+          "type": "service",
+          "settings": {
+            "title": "Hot Towel Shave",
+            "description": "",
+            "duration": "30 min",
+            "price": "$40",
+            "icon": "beard",
+            "category": "Haircuts & grooming",
+            "demo": true,
+            "visible": true
+          }
+        },
+        "colour": {
+          "type": "service",
+          "settings": {
+            "title": "Hair Color",
+            "description": "",
+            "duration": "60 min",
+            "price": "$70",
+            "icon": "cut",
+            "category": "Haircuts & grooming",
+            "demo": true,
+            "visible": true
+          }
+        },
+        "scalp": {
+          "type": "service",
+          "settings": {
+            "title": "Scalp Treatment",
+            "description": "",
+            "duration": "",
+            "price": "$15",
+            "icon": "combo",
+            "category": "Add-ons",
+            "demo": true,
+            "visible": true
+          }
+        },
+        "conditioning": {
+          "type": "service",
+          "settings": {
+            "title": "Beard Conditioning",
+            "description": "",
+            "duration": "",
+            "price": "$10",
+            "icon": "beard",
+            "category": "Add-ons",
+            "demo": true,
+            "visible": true
+          }
+        }
+      },
+      "block_order": [
+        "haircut",
+        "beard",
+        "combo",
+        "shave",
+        "colour",
+        "scalp",
+        "conditioning"
+      ]
+    },
+    "gallery": {
+      "type": "un-gallery",
+      "settings": {
+        "cta": "Book appointment",
+        "destination": "book"
+      },
+      "blocks": {
+        "fade": {
+          "type": "photo",
+          "settings": {
+            "demo": "fade",
+            "caption": "Skin fade",
+            "alt": "Illustrative close side profile with a clean fade"
+          }
+        },
+        "beard": {
+          "type": "photo",
+          "settings": {
+            "demo": "beard",
+            "caption": "Beard detail",
+            "alt": "Illustrative close-up of a sculpted beard"
+          }
+        },
+        "crop": {
+          "type": "photo",
+          "settings": {
+            "demo": "crop",
+            "caption": "Textured crop",
+            "alt": "Illustrative textured crop with barber finishing the style"
+          }
+        }
+      },
+      "block_order": [
+        "fade",
+        "beard",
+        "crop"
+      ]
+    }
+  },
+  "order": [
+    "services",
+    "gallery"
+  ]
+}

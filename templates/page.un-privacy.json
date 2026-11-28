@@ -1,0 +1,15 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "policy": {
+      "type": "un-policy",
+      "settings": {
+        "heading": "Privacy Policy",
+        "draft_brief": "<p>Confirm Shopify and Acuity processing, form and analytics use, sharing, retention, individual rights and privacy contact details.</p>"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

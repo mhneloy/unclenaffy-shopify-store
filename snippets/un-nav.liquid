@@ -1,0 +1,12 @@
+{%- if menu != blank and menu.links.size > 0 -%}
+  {%- for link in menu.links -%}
+    <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+  {%- endfor -%}
+{%- else -%}
+  {%- assign destinations = 'home,about,prices,visit' | split: ',' -%}
+  {%- assign labels = 'Home,About,Prices & Gallery,Location' | split: ',' -%}
+  {%- for destination in destinations -%}
+    {%- assign current_template = destination | prepend: 'un-' -%}
+    <a href="{% render 'un-url', destination: destination %}"{% if template.suffix == current_template or destination == 'home' and template.name == 'index' %} aria-current="page"{% endif %}>{{ labels[forloop.index0] | escape }}</a>
+  {%- endfor -%}
+{%- endif -%}

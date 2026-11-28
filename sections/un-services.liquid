@@ -1,0 +1,103 @@
+{% assign s = section.settings %}
+{%- capture booking_url -%}{% render 'un-url', destination: 'book' %}{%- endcapture -%}
+{%- capture prices_url -%}{% render 'un-url', destination: 'prices' %}{%- endcapture -%}
+<section id="prices" class="un-section un-services un-services--{{ s.layout }}" {% render 'un-section-style', section: section %}>
+  <div class="un-wrap">
+    <div class="un-section-head">
+      <div>
+        {% if s.eyebrow != blank %}<p class="un-kicker">{{ s.eyebrow | escape }}</p>{% endif %}
+        {% if s.layout == 'list' %}<h1>{{ s.heading | escape }}</h1>{% else %}<h2>{{ s.heading | escape }}</h2>{% endif %}
+      </div>
+      {% if s.copy != blank %}<p>{{ s.copy | escape }}</p>{% endif %}
+    </div>
+    {% if s.layout == 'list' %}
+      {% assign categories = section.blocks | map: 'settings' | map: 'category' | uniq %}
+      {% for category in categories %}
+        {% assign has_visible_service = false %}
+        {% for block in section.blocks %}
+          {% if block.settings.category == category and block.settings.visible %}
+            {% assign has_visible_service = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        {% if has_visible_service %}
+          <div class="un-service-category">
+            <h2>{{ category | default: 'Services' | escape }}</h2>
+            <ul class="un-price-list" role="list">
+              {% for block in section.blocks %}
+                {% if block.settings.category == category and block.settings.visible %}
+                  {% assign item = block.settings %}
+                  <li {{ block.shopify_attributes }}>
+                    <a href="{{ item.link | default: booking_url }}">
+                      {% if s.show_images and item.image != blank %}{% render 'un-image', image: item.image, alt: item.alt, class: 'un-price-thumb', sizes: '64px' %}{% endif %}
+                      <span class="un-price-name"><strong>{{ item.title | escape }}</strong>{% if item.description != blank %}<span>{{ item.description | escape }}</span>{% endif %}</span>
+                      {% if item.duration != blank %}<span class="un-price-duration">{{ item.duration | escape }}</span>{% endif %}
+                      {% if item.price != blank %}<span class="un-price-amount">{% if item.from %}From {% endif %}{{ item.price | escape }}{% if item.demo %} <small>Demo</small>{% endif %}</span>{% endif %}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <a class="un-button" href="{{ booking_url }}">Book appointment</a>
+    {% else %}
+      <div class="un-service-cards" style="--un-columns: {{ s.columns }};">
+        {% for block in section.blocks %}
+          {% assign item = block.settings %}
+          {% if item.visible %}
+            <a class="un-service-card" href="{{ item.link | default: prices_url }}" {{ block.shopify_attributes }}>
+              {% if s.show_images and item.image != blank %}
+                {% render 'un-image', image: item.image, alt: item.alt, class: 'un-service-image', sizes: '(min-width: 900px) 30vw, 90vw' %}
+              {% else %}
+                <span class="un-service-icon" aria-hidden="true">
+                  {% case item.icon %}
+                    {% when 'beard' %}<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 14c1 10 4 17 11 21 7-4 10-11 11-21M12 11c2 3 4 5 8 5s6-2 8-5M15 24c3-2 7-2 10 0"/></svg>
+                    {% when 'combo' %}<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 5v30M5 20h30M9.5 9.5l21 21m0-21-21 21"/><circle cx="20" cy="20" r="10"/></svg>
+                    {% else %}<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="27" r="4.5"/><circle cx="28" cy="28" r="4.5"/><path d="m13 24 16-16m-3 16L11 8m8 12 1 1"/></svg>
+                  {% endcase %}
+                </span>
+              {% endif %}
+              <h3>{{ item.title | escape }}</h3>
+              {% if item.description != blank %}<p>{{ item.description | escape }}</p>{% endif %}
+              {% if item.duration != blank %}<span class="un-service-duration">{{ item.duration | escape }}{% if item.demo %} · Demo{% endif %}</span>{% endif %}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <a class="un-button un-button--outline" href="{{ prices_url }}">View price list</a>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name":"Uncle Naffy services",
+  "settings":[
+    {"type":"select","id":"layout","label":"Layout","default":"cards","options":[{"value":"cards","label":"Preview cards"},{"value":"list","label":"Full price list"}]},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"The service menu"},
+    {"type":"text","id":"heading","label":"Heading","default":"Find your cut."},
+    {"type":"textarea","id":"copy","label":"Supporting text"},
+    {"type":"checkbox","id":"show_images","label":"Show service images","default":true},
+    {"type":"range","id":"columns","label":"Desktop preview columns","min":2,"max":4,"step":1,"default":3},
+    {"type":"color","id":"background","label":"Section background"},
+    {"type":"range","id":"space","label":"Desktop spacing","min":40,"max":112,"step":4,"unit":"px","default":88},
+    {"type":"range","id":"mobile_space","label":"Mobile spacing","min":32,"max":72,"step":4,"unit":"px","default":52}
+  ],
+  "blocks":[{"type":"service","name":"Service","settings":[
+    {"type":"text","id":"title","label":"Name","default":"Haircut"},
+    {"type":"text","id":"category","label":"Category","default":"Haircuts & grooming"},
+    {"type":"textarea","id":"description","label":"Description"},
+    {"type":"text","id":"duration","label":"Display duration"},
+    {"type":"text","id":"price","label":"Price with currency symbol"},
+    {"type":"checkbox","id":"from","label":"Show from pricing","default":false},
+    {"type":"checkbox","id":"demo","label":"Label duration or price as demo","default":true},
+    {"type":"checkbox","id":"visible","label":"Visible","default":true},
+    {"type":"image_picker","id":"image","label":"Service image"},
+    {"type":"text","id":"alt","label":"Image alt text"},
+    {"type":"select","id":"icon","label":"Preview icon","default":"cut","options":[{"value":"cut","label":"Scissors"},{"value":"beard","label":"Beard"},{"value":"combo","label":"Detail"}]},
+    {"type":"url","id":"link","label":"Custom destination"}
+  ]}],
+  "presets":[{"name":"Uncle Naffy services","blocks":[{"type":"service"}]}]
+}
+{% endschema %}

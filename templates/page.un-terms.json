@@ -1,0 +1,15 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "policy": {
+      "type": "un-policy",
+      "settings": {
+        "heading": "Terms & Conditions",
+        "draft_brief": "<p>Confirm the service and booking terms, business details and how customers can contact the shop.</p>"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

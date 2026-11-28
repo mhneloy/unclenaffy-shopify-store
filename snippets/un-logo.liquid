@@ -1,0 +1,8 @@
+{%- if settings.un_logo != blank -%}
+  {{ settings.un_logo | image_url: width: 480 | image_tag: class: 'un-logo-image', widths: '80, 120, 180, 240, 360, 480', alt: 'Uncle Naffy', loading: 'eager' }}
+{%- else -%}
+  <span class="un-wordmark">
+    <span class="un-monogram" aria-hidden="true">UN<span>.</span></span>
+    {% unless mark_only %}<span class="un-wordmark-name">UNCLE NAFFY<small>BARBERING</small></span>{% endunless %}
+  </span>
+{%- endif -%}

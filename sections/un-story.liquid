@@ -1,0 +1,49 @@
+{% assign s = section.settings %}
+<section class="un-section un-story" {% render 'un-section-style', section: section %}>
+  <div class="un-wrap">
+    <div class="un-story-grid">
+      <div><p class="un-kicker">{{ s.eyebrow | escape }}</p><h2>{{ s.heading | escape }}</h2></div>
+      <div class="un-prose">{{ s.copy }}</div>
+    </div>
+    {% if s.show_team and section.blocks.size > 0 %}
+      <div class="un-team">
+        <h2>{{ s.team_heading | escape }}</h2>
+        <div class="un-review-grid">
+          {% for block in section.blocks %}
+            <article class="un-team-card" {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}{% render 'un-image', image: block.settings.image, alt: block.settings.alt, class: 'un-cover', sizes: '(min-width: 900px) 30vw, 90vw' %}{% endif %}
+              <h3>{{ block.settings.name | escape }}</h3>
+              <p class="un-kicker">{{ block.settings.role | escape }}</p>
+              <div class="un-prose">{{ block.settings.bio }}</div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    {% if s.cta != blank %}<a class="un-button" href="{% render 'un-url', destination: 'book' %}">{{ s.cta | escape }}</a>{% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name":"Uncle Naffy story & team",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"The vision"},
+    {"type":"text","id":"heading","label":"Heading","default":"Care in every cut."},
+    {"type":"richtext","id":"copy","label":"Story or vision"},
+    {"type":"text","id":"cta","label":"Booking button label"},
+    {"type":"checkbox","id":"show_team","label":"Show confirmed team","default":false},
+    {"type":"text","id":"team_heading","label":"Team heading","default":"Meet the team."},
+    {"type":"color","id":"background","label":"Section background"},
+    {"type":"range","id":"space","label":"Desktop spacing","min":40,"max":112,"step":4,"unit":"px","default":88},
+    {"type":"range","id":"mobile_space","label":"Mobile spacing","min":32,"max":72,"step":4,"unit":"px","default":52}
+  ],
+  "blocks":[{"type":"member","name":"Team member","settings":[
+    {"type":"text","id":"name","label":"Name"},
+    {"type":"text","id":"role","label":"Role"},
+    {"type":"image_picker","id":"image","label":"Portrait"},
+    {"type":"text","id":"alt","label":"Portrait alt text"},
+    {"type":"richtext","id":"bio","label":"Biography"}
+  ]}],
+  "presets":[{"name":"Uncle Naffy story & team"}]
+}
+{% endschema %}

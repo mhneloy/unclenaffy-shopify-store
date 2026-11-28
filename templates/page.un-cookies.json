@@ -1,0 +1,15 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "policy": {
+      "type": "un-policy",
+      "settings": {
+        "heading": "Cookie Policy",
+        "draft_brief": "<p>Audit cookies and similar technologies on the storefront and embedded tools. Verify categories, consent controls and how visitors can update their choices.</p>"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}
