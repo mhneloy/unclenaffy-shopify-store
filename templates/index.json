@@ -12,6 +12,9 @@
   "sections": {
     "hero": {
       "type": "un-hero",
+      "custom_css": [
+        "img{mix-blend-mode: screen;}"
+      ],
       "settings": {
         "eyebrow": "Uncle Naffy Barbering",
         "heading": "Precision in",
