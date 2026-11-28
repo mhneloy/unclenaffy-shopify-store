@@ -2631,7 +2631,7 @@
       "un-footer": {
         "type": "un-footer",
         "settings": {
-          "menu": "",
+          "menu": "main-menu",
           "policy_menu": "",
           "tagline": "Precision in every detail.",
           "hours": "",
