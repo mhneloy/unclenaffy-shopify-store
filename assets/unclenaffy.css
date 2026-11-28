@@ -242,7 +242,7 @@ body.un-site { margin: 0; background: var(--un-bg); color: var(--un-text); font:
 .un-booking-questions summary { min-height: 48px; padding: 12px 0; cursor: pointer; }
 .un-booking-questions .un-prose { padding-bottom: 14px; }
 .un-booking-questions > .un-prose { margin-top: 14px; }
-.un-policy .un-prose { max-width: 67ch; margin-top: 22px; }
+.un-policy .un-prose, .un-page .un-prose { max-width: 67ch; margin-top: 22px; }
 .un-policy .un-note { margin-top: 22px; }
 
 .un-footer { padding-block: var(--un-padding-top, 48px) var(--un-padding-bottom, 17px); border-top: 1px solid var(--un-line); background: var(--un-section-bg, var(--un-panel)); }

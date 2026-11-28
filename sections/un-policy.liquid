@@ -1,8 +1,10 @@
 <section class="un-section un-policy" data-un-style style="{% render 'un-section-style', section: section %}">
   <div class="un-wrap">
-    <h1>{{ page.title | default: section.settings.heading | escape }}</h1>
-    {% if page.content != blank %}
-      <div class="un-prose">{{ page.content }}</div>
+    {% assign document_title = policy.title | default: page.title | default: section.settings.heading %}
+    {% assign document_content = policy.body | default: page.content %}
+    <h1>{{ document_title | escape }}</h1>
+    {% if document_content != blank %}
+      <div class="un-prose">{{ document_content }}</div>
     {% elsif request.design_mode and section.settings.draft_brief != blank %}
       <p class="un-note">Draft brief for client review</p>
       <div class="un-prose">{{ section.settings.draft_brief }}</div>

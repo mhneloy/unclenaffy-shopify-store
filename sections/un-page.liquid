@@ -1,0 +1,14 @@
+<section class="un-section un-page" data-un-style style="{% render 'un-section-style', section: section %}">
+  <div class="un-wrap">
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.content != blank %}
+      <div class="un-prose">{{ page.content }}</div>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Uncle Naffy page",
+  "settings": []
+}
+{% endschema %}

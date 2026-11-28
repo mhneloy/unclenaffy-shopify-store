@@ -1,0 +1,14 @@
+{
+  "layout": "unclenaffy",
+  "sections": {
+    "main": {
+      "type": "un-policy",
+      "settings": {
+        "heading": "Policy"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
